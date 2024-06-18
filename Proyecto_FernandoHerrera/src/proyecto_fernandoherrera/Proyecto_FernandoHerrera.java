@@ -274,16 +274,6 @@ public class Proyecto_FernandoHerrera {
         }
     }
     
-    public static void HistorialAlquiler (String [][] historial){
-        for (int i = 0; i < historial.length; i++) {
-            System.out.println("Numero de Alquiler: " + (i+1));
-            for (int j = 0; j < historial.length; j++) {
-                System.out.println("[" + historial[i][j]+ "]");
-                
-            }
-        }
-    }
-    
     public static String[][] Reservaciones (ArrayList<String[][]> reservas){
         
         Scanner read = new Scanner(System.in);
@@ -350,8 +340,9 @@ public class Proyecto_FernandoHerrera {
                     break;
                 
             }
-            
+            //El contador ser sumara de uno en uno para que se llene el registro de las reservaciones
             contReservaciones++;
+            //Aqui agregamos al ArrayList la matriz completa para luego imprimirla en la siguiente opcion
             reservas.add(historial);
         } while (contReservaciones < reservaciones);
         
@@ -370,9 +361,10 @@ public class Proyecto_FernandoHerrera {
     }
     
     public static void ListaReservas (ArrayList<String[][]> reservas){
-      
+      //Se usa un ciclo for para recorrer el ArrayList
         for (int i = 0; i < reservas.size(); i++) {
             System.out.println("Reserva #" +(i+1));
+            //Se utiliza el deep.ToString para poder imprimir los Strings que contiene el ArrayList
             System.out.println(Arrays.deepToString(reservas.get(i)));
             System.out.println("");
         }
