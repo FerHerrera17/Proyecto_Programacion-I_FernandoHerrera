@@ -22,6 +22,8 @@ public class Proyecto_FernandoHerrera {
         //Un arraylist que nos manejara los vehiculos que estan disponibles
         ArrayList<Alquiler> listado = new ArrayList();
         
+        //ArrayList que nos ayudara a guardar las matrices que son reservaciones
+        ArrayList<String[][]> reservas = new ArrayList<>();
         
         //Variable que se manejara para la clase llamada Metodo
         Metodo prog = new Metodo();
@@ -62,7 +64,8 @@ public class Proyecto_FernandoHerrera {
             System.out.println("1. Busqueda por Tipo");
             System.out.println("2. Alquilar");
             System.out.println("3. Reservaciones");
-            System.out.println("4. Salir del sistema");
+            System.out.println("4. Lista de Reservaciones");
+            System.out.println("5. Salir del sistema");
             op = read.nextInt();
         
         switch (op){
@@ -90,7 +93,7 @@ public class Proyecto_FernandoHerrera {
                 persona.setEdad(edad);
                 System.out.println("");
                 //Hay que verificar que sea una persona determinada o "mayor de edad" para que pueda alquilar un vehiculo
-                while (edad < 18){
+                while (edad < 19){
                     System.out.println("Tiene que ser mayor de 18 para poder alquilar uno de nuestros vehiculos");
                     System.out.println("Intente de nuevo");
                     System.out.println("Ingrese su edad: ");
@@ -206,91 +209,12 @@ public class Proyecto_FernandoHerrera {
                 break;
             case 3:
                 
-                //Iniciare una matriz en esta opcion para poder tener el manejo de las reservaciones futuras
-                System.out.println("-----MENU DE RESERVACIONES-----");
-                System.out.print("Cuantas reservaciones desea hacer (1, 2 , 3): ");
-                int reservaciones = read.nextInt();
-                String [][] historial = new String [reservaciones][4];
-                int contReservaciones = 0;
-                
-                
-                do { 
-                    //Ciclo while que se repetira las veces que el usuario ingreso en reservaciones
-                    //Con una variable contador de reservaciones, cada respuesta del usuario lo guardamos en las posiciones de la matriz
-                    System.out.print("Ingrese su primer nombre: ");
-                    read.next();
-                    String name = read.next();
-                    historial[contReservaciones][0] = name;
-                
-                
-                    System.out.print("Ingrese su primer apellido: ");
-                    String name2 = read.next();
-                    historial[contReservaciones][1] = name2;
-                    System.out.println("");
-                
-                
-                    System.out.println("Que tipo de Vehiculo desea reservar: ");
-                    System.out.println("1. Sedan");
-                    System.out.println("2. SUV");
-                    System.out.println("3. Pickup");
-                    System.out.println("4. Van");
-                    int type = read.nextInt();
-                
-                    while (type < 1 || type > 4){
-                        System.out.println("Ingrese una opcion valida");
-                        type = read.nextInt();
-                    }
-                    switch (type){
-                        case 1:
-                            historial[contReservaciones][2] = "Sedan";
-                            break;
-                        case 2: 
-                            historial[contReservaciones][2] = "SUV";
-                            break;
-                        case 3:
-                            historial[contReservaciones][2] = "Pickup";
-                            break;
-                        case 4:
-                            historial[contReservaciones][2] = "Van";
-                            break;
-                    }
-                    System.out.println("");
-                    System.out.println("Ingrese su forma de pago: ");
-                    System.out.println("1. Efectivo");
-                    System.out.println("2. Tarjeta");
-                    int pago = read.nextInt();
-                    
-                    while (pago < 1 || pago > 2 ){
-                        System.out.println("Su opcion no es valida, intente de nuevo");
-                        System.out.println("1. Efectivo");
-                        System.out.println("2. Tarjeta");
-                        pago = read.nextInt();
-                    }
-                    
-                    switch (pago){
-                        case 1:
-                            historial[contReservaciones][3] = "Efectivo";
-                            break;
-                        case 2:
-                            historial[contReservaciones][3] = "Tarjeta";
-                            break;
-                    }
-                contReservaciones++;
-                } while (contReservaciones < reservaciones);
-                
-                System.out.println("");
-                System.out.println("----------RESERVACION(ES)----------");
-                for (int i = 0; i < reservaciones; i++) {
-                    System.out.println("Numero de reservacion #" + (i+1));
-                    for (int j = 0; j < 4; j++) {
-                        System.out.print("[" + historial[i][j] + "]");
-                        
-                    }
-                    System.out.println("");
-                    System.out.println("");
-                }
+                Reservaciones(reservas);
                 break;
-            case 4: 
+            case 4:
+                ListaReservas(reservas);
+                break;
+            case 5: 
                 System.out.println("¡¡Gracias por su visita, vuelva pronto!!");
                 break;
             default:
@@ -298,7 +222,7 @@ public class Proyecto_FernandoHerrera {
             
         }
         
-        } while (op!=4);
+        } while (op!=5);
     }
     
     public static void Factura (int num, int tiempo, Usuario persona, ArrayList<Alquiler> listado){
@@ -360,6 +284,98 @@ public class Proyecto_FernandoHerrera {
         }
     }
     
+    public static String[][] Reservaciones (ArrayList<String[][]> reservas){
+        
+        Scanner read = new Scanner(System.in);
+        //Iniciare una matriz en esta opcion para poder tener el manejo de las reservaciones futuras
+        System.out.println("-----MENU DE RESERVACIONES-----");
+        System.out.print("Cuantas reservaciones desea hacer (1, 2 , 3): ");
+        int reservaciones = read.nextInt();
+        String [][] historial = new String [reservaciones][4];
+        int contReservaciones = 0;
+        do {
+            //Ciclo while que se repetira las veces que el usuario ingreso en reservaciones
+            //Con una variable contador de reservaciones, cada respuesta del usuario lo guardamos en las posiciones de la matriz
+            System.out.print("Ingrese su primer nombre: ");
+            
+            String name = read.next();
+            historial[contReservaciones][0] = name;
+            
+            System.out.print("Ingrese su primer apellido: ");
+            String name2 = read.next();
+            historial[contReservaciones][1] = name2;System.out.println("");
+            
+            System.out.println("Que tipo de Vehiculo desea reservar: ");
+            System.out.println("1. Sedan");
+            System.out.println("2. SUV");
+            System.out.println("3. Pickup");
+            System.out.println("4. Van");
+            int type = read.nextInt();
+            while (type < 1 || type > 4){
+                System.out.println("Ingrese una opcion valida");
+                type = read.nextInt();
+            }
+            switch (type){
+                case 1:
+                    historial[contReservaciones][2] = "Sedan";
+                    break;
+                case 2:
+                    historial[contReservaciones][2] = "SUV";
+                    break;
+                case 3:
+                    historial[contReservaciones][2] = "Pickup";
+                    break;
+                case 4:
+                    historial[contReservaciones][2] = "Van";
+                    break;
+            }
+            System.out.println("");
+            System.out.println("Ingrese su forma de pago: ");
+           
+            System.out.println("1. Efectivo");
+            System.out.println("2. Tarjeta");
+            int pago = read.nextInt();
+            while (pago < 1 || pago > 2 ){
+                System.out.println("Su opcion no es valida, intente de nuevo");
+                System.out.println("1. Efectivo");
+                System.out.println("2. Tarjeta");
+                pago = read.nextInt();
+            }
+            switch (pago){
+                case 1:
+                    historial[contReservaciones][3] = "Efectivo";
+                    break;
+                case 2:
+                    historial[contReservaciones][3] = "Tarjeta";
+                    break;
+                
+            }
+            
+            contReservaciones++;
+            reservas.add(historial);
+        } while (contReservaciones < reservaciones);
+        
+        System.out.println("");
+        System.out.println("----------RESERVACION(ES)----------");
+        for (int i = 0; i < reservaciones; i++) {
+            System.out.println("Numero de reservacion #" + (i+1));
+            for (int j = 0; j < 4; j++) {
+                System.out.print("[" + historial[i][j] + "]");
+                
+            }
+            System.out.println("");
+            System.out.println("");
+        }
+    return historial;
+    }
     
-    
+    public static void ListaReservas (ArrayList<String[][]> reservas){
+      
+        for (int i = 0; i < reservas.size(); i++) {
+            System.out.println("Reserva #" +(i+1));
+            System.out.println(Arrays.deepToString(reservas.get(i)));
+            System.out.println("");
+        }
+        
+    }
 }

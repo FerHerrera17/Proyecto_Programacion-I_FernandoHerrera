@@ -163,6 +163,12 @@ class Metodo {
         System.out.println("3. Trabajo");
         System.out.println("4. Otro");
         int opcion = read.nextInt();
+        
+        while (opcion < 1 || opcion > 4){
+            System.out.print("Opcion incorrecta, ingrese de nuevo: ");
+            opcion = read.nextInt();
+        }
+        
         switch (opcion){
             case 1:
                 persona.setMotivo("Turismo");
@@ -257,6 +263,10 @@ class Metodo {
                             if (listado.get(i).getMarca().equalsIgnoreCase(marca)){
                                 System.out.println(buscarVehiculo(listado, marca, tipo));
                                 tipo++;
+                            }
+                            else {
+                                System.out.println("No tenemos registro de ese vehiculo, verifique que ha sido ingresado correctamente");
+                                break;
                             }
                         }
                         

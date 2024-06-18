@@ -89,6 +89,7 @@ public class Alquiler_Vehiculos extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tblRegistroAlquiler.setFont(new java.awt.Font("MS UI Gothic", 0, 14)); // NOI18N
         tblRegistroAlquiler.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -113,7 +114,7 @@ public class Alquiler_Vehiculos extends javax.swing.JFrame {
         jPanel1.add(edadUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 40, -1));
         jPanel1.add(intDiaAlquiler, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 50, 30));
 
-        txtMotivoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Viaje Familiar", "Turismo", "Trabajo", "Otro", " " }));
+        txtMotivoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Viaje Familiar", "Turismo", "Trabajo", "Otro" }));
         txtMotivoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMotivoUsuarioActionPerformed(evt);
@@ -130,14 +131,14 @@ public class Alquiler_Vehiculos extends javax.swing.JFrame {
         jPanel1.add(diaAlquiler, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 120, -1));
         jPanel1.add(txtNombreUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 200, 30));
 
-        marcaAlquiler.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "KIA", "TOYOTA", "NISSAN", "VOLKSWAGEN", "MITSUBISHI", "CHEVROLET" }));
+        marcaAlquiler.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "KIA", "TOYOTA", "NISSAN", "VOLKSWAGEN", "MITSUBISHI", "CHEVROLET" }));
         jPanel1.add(marcaAlquiler, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 140, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setText("Tipo de Auto");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 90, -1));
 
-        tipoAlquiler.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SEDAN", "SUV", "PICKUP", "VAN" }));
+        tipoAlquiler.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "SEDAN", "SUV", "PICKUP", "VAN" }));
         jPanel1.add(tipoAlquiler, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 140, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N

@@ -70,6 +70,9 @@
           <SubComponents>
             <Component class="javax.swing.JTable" name="tblRegistroAlquiler">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="MS UI Gothic" size="14" style="0"/>
+                </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="4" rowCount="4">
                     <Column editable="true" title="Title 1" type="java.lang.Object"/>
@@ -119,11 +122,11 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="5">
-                <StringItem index="0" value="Viaje Familiar"/>
-                <StringItem index="1" value="Turismo"/>
-                <StringItem index="2" value="Trabajo"/>
-                <StringItem index="3" value="Otro"/>
-                <StringItem index="4" value=" "/>
+                <StringItem index="0" value=" "/>
+                <StringItem index="1" value="Viaje Familiar"/>
+                <StringItem index="2" value="Turismo"/>
+                <StringItem index="3" value="Trabajo"/>
+                <StringItem index="4" value="Otro"/>
               </StringArray>
             </Property>
           </Properties>
@@ -175,13 +178,14 @@
         <Component class="javax.swing.JComboBox" name="marcaAlquiler">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="6">
-                <StringItem index="0" value="KIA"/>
-                <StringItem index="1" value="TOYOTA"/>
-                <StringItem index="2" value="NISSAN"/>
-                <StringItem index="3" value="VOLKSWAGEN"/>
-                <StringItem index="4" value="MITSUBISHI"/>
-                <StringItem index="5" value="CHEVROLET"/>
+              <StringArray count="7">
+                <StringItem index="0" value=" "/>
+                <StringItem index="1" value="KIA"/>
+                <StringItem index="2" value="TOYOTA"/>
+                <StringItem index="3" value="NISSAN"/>
+                <StringItem index="4" value="VOLKSWAGEN"/>
+                <StringItem index="5" value="MITSUBISHI"/>
+                <StringItem index="6" value="CHEVROLET"/>
               </StringArray>
             </Property>
           </Properties>
@@ -210,11 +214,12 @@
         <Component class="javax.swing.JComboBox" name="tipoAlquiler">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="SEDAN"/>
-                <StringItem index="1" value="SUV"/>
-                <StringItem index="2" value="PICKUP"/>
-                <StringItem index="3" value="VAN"/>
+              <StringArray count="5">
+                <StringItem index="0" value=" "/>
+                <StringItem index="1" value="SEDAN"/>
+                <StringItem index="2" value="SUV"/>
+                <StringItem index="3" value="PICKUP"/>
+                <StringItem index="4" value="VAN"/>
               </StringArray>
             </Property>
           </Properties>
